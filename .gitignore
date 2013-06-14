@@ -1,17 +1,15 @@
-# Object files
-*.o
+#object files
+*.[oa]
 
-# Libraries
-*.lib
-*.a
+#vim files
+.backup
+.undo
+*.session
+*~
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
+#output
+*.img
+*.iso
+*.bin
+*.sys
+*.com

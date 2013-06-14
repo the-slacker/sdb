@@ -1,0 +1,2 @@
+SYS="$HOME/projects/sdb/system/"
+genisoimage -R -b $SYS/sys/fs/boot/boot1.bin -no-emul-boot -boot-load-size 4 -o $SYS/dist/slacker.iso $SYS/sys/fs/
