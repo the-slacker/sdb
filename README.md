@@ -7,9 +7,9 @@ iting in mind.
 
 Features
 ---
-*Vim-like keyboard navigation
-*terminal interface
-*Platform Portability
-*Extensibility through plugins
-*x86 & amd64 support
-*Speed of debugging (using asm where needed)
++	Vim-like keyboard navigation
++	terminal interface
++	Platform Portability
++	Extensibility through plugins
++	x86 & amd64 support
++	Speed of debugging (using asm where needed)
