@@ -1,9 +1,8 @@
 Slacker's Debugger
 ===
 
-Slacker['s] Debugger (sdb) is a debugger for both userland and kernelspace apps
-for whatever purpose you desire, albeit it is being developed with security aud-
-iting in mind.
+Slacker['s] Debugger (sdb) is a debugger for both userland and kernelspace apps for whatever 
+purpose you desire, albeit it is being developed with security auditing in mind.
 
 Features
 ---

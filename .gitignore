@@ -1,3 +1,6 @@
+#various files
+system/docs
+
 #object files
 *.[oa]
 
@@ -5,9 +8,10 @@
 .backup
 .undo
 *.session
+*.swp
 *~
 
-#output
+#output files
 *.img
 *.iso
 *.bin
