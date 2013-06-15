@@ -23,7 +23,7 @@ end virtual
 ;SizeOf FAT12 table := 0x3e (62) bytes
 main:	
 	;Store drive number
-	;mov byte [fat.BS_DrvNum],dl
+	;mov BYTE [fat.BS_DrvNum],dl
 	
 	;Setup basic info, check for supported functions
 	call Setup
@@ -46,7 +46,7 @@ Setup:
 	pop bp
 	
 	;Store Drive Number in FAT table
-	;mov byte [fat.BS_DrvNum],dl
+	;mov BYTE [fat.BS_DrvNum],dl
 
 	;Setup segregs
 	cli
@@ -64,8 +64,8 @@ Setup:
 	;Calculate the ClusterOffset
 	;( ( RootEntCnt * FAT12_ENTRY_SIZE ) + ( RsvdSecCnt * BytesPerSec ) )
 	mov ax,FAT12_ENTRY_SIZE
-	mul WORD [ FAT12 + _FAT12.BPB_RootEntCnt ]
-	mov WORD [ EFA + _EFA.RootDirSize ],ax
+	mul word [ FAT12 + _FAT12.BPB_RootEntCnt ]
+	mov word [ EFA + _EFA.RootDirSize ],ax
 	mov bx,ax
 	xor dx,dx
 	

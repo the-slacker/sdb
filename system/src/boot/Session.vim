@@ -33,14 +33,15 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +66 bootsec.asm
+badd +21 bootsec.asm
 badd +1 ../include/common.inc
 badd +1 ../include/fat12.inc
 badd +1 ../include/constants.inc
-badd +0 ../include/strucs.inc
-badd +0 ../include/macros.inc
-badd +0 ../include/mem.inc
-badd +0 ../include/system.inc
+badd +1 ../include/strucs.inc
+badd +1 ../include/macros.inc
+badd +1 ../include/mem.inc
+badd +1 ../include/system.inc
+badd +1 ../include/fat12_partition.inc
 args bootsec.asm
 edit ../include/common.inc
 set splitbelow splitright
@@ -151,12 +152,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 11 - ((6 * winheight(0) + 31) / 62)
+let s:l = 17 - ((12 * winheight(0) + 31) / 63)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-11
-normal! 027|
+17
+normal! 09|
 tabedit ../include/constants.inc
 set splitbelow splitright
 set nosplitbelow
@@ -266,12 +267,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 31) / 62)
+let s:l = 66 - ((5 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+66
+normal! 0111|
 tabedit ../include/strucs.inc
 set splitbelow splitright
 set nosplitbelow
@@ -496,11 +497,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 31) / 62)
+let s:l = 49 - ((48 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+49
 normal! 0
 tabedit ../include/mem.inc
 set splitbelow splitright
@@ -726,11 +727,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 31) / 62)
+let s:l = 26 - ((25 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+26
 normal! 0
 tabedit ../include/fat12.inc
 set splitbelow splitright
@@ -956,13 +957,13 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 66 - ((54 * winheight(0) + 31) / 62)
+let s:l = 52 - ((33 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-66
-normal! 030|
-tabnext 8
+52
+normal! 09|
+tabnext 2
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

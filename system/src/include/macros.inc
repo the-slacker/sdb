@@ -1,6 +1,3 @@
-%ifndef MACROS_MAC
-	%define MACROS_MAC
-
 ;------------------------------------------------
 ;decrypt MACRO
 ;------------------------------------------------
@@ -24,31 +21,29 @@
 ;------------------------------------------------
 ;Usage: magic_bp
 ;------------------------------------------------
-%macro magic_bp 0
+macro magic_bp {
 	xchg bx,bx
-%endmacro
+}
 ;------------------------------------------------
 ;gdt_entry MACRO
 ;------------------------------------------------
 ;Usage: gdt_entry BASE_ADDR,LIMIT,ACCESS FLAGS, LIM_FLAGS
 ;------------------------------------------------
-%macro gdt_entry 4
+macro gdt_entry a,b,c,d {
 	;Lo DWORD of GDT
 	;dd (((%2 << 16) & 0xffff0000) | (%2 & 0x0000ffff))
 	;Hi DWORD of GDT
 	;dd ((%2 & 0x000f0000) | ((((%3 >> 8) | %4) << 8) & 0x00f0ff00) | (%1 & 0xff000000) | ((%1 >> 16) & 0x000000ff))
 	
 	;Lo DWORD of GDT
-	db ( %2 & 0x000000ff )
-	db ( ( %2 & 0x0000ff00 ) >> 8 )
-	db ( %1 & 0x000000ff )
-	db ( ( %1 & 0x0000ff00 ) >> 8 )
+	db ( b and 0x000000ff )
+	db ( ( b and 0x0000ff00 ) shr 8 )
+	db ( a and 0x000000ff )
+	db ( ( a and 0x0000ff00 ) shr 8 )
 	;Hi DWORD of GDT
-	db ( ( %1 & 0x00ff0000 ) >> 16 )
-	db %3
-	db ( ( %4 & GDT_FLAGS_NIBBLE ) | ( ( %2 & 0x0f0000 ) >> 16 ) )
-	db ( ( %1 & 0xff000000 ) >> 28 )
-%endmacro
+	db ( ( a and 0x00ff0000 ) shr 16 )
+	db c
+	db ( ( d and GDT_FLAGS_NIBBLE ) or ( ( b and 0x0f0000 ) shr 16 ) )
+	db ( ( a and 0xff000000 ) shr 28 )
+}
 ;------------------------------------------------
-
-%endif
