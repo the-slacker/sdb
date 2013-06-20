@@ -7,6 +7,7 @@ system/docs
 #vim files
 .backup
 .undo
+*.vim
 *.session
 *.swp
 *~
